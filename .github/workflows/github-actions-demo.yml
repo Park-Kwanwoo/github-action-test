@@ -1,0 +1,11 @@
+name: Retrieve Base64 secret
+on:
+  [push]
+jobs:
+  decode-secret:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Retrieve the secret and decode it to a file
+        run: | 
+                echo ${{secrets.APPLICATION_YML}} | base64 --decode
