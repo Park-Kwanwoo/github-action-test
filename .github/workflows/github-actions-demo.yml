@@ -8,4 +8,4 @@ jobs:
       - uses: actions/checkout@v4
       - name: Retrieve the secret and decode it to a file
         run: | 
-                echo ${{ APPLICATION_YML }} | base64 --decode
+                echo $APPLICATION_YML | base64 --decode
