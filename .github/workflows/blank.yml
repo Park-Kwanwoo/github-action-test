@@ -8,6 +8,7 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - run: chomd +x
+      shell: bash
     - run: mkdir /actions
     - run: touch /actions/application-secret.yml
     - run: echo ${{ secrets.APPLICATION_YML }} | base64 --decode >> /actions/application-secret.yml
