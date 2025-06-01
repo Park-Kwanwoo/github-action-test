@@ -4,7 +4,8 @@ on:
 
 jobs:
   get-and-write:
+    runs-on: ubuntu-latest
     steps:
       - name: Gets secret and write in directory
-        runs: touch /actions/application-secret.yml
-        runs: echo ${{ secrets.APPLICATION_YML }} | base64 --decode >> /actions/application-secret.yml
+      - run: touch /actions/application-secret.yml \
+      - run: echo ${{ secrets.APPLICATION_YML }} | base64 --decode >> /actions/application-secret.yml
