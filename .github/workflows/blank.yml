@@ -6,6 +6,7 @@ jobs:
   get-and-write:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4
       - name: Gets secret and write in directory
       - run: touch /actions/application-secret.yml \
       - run: echo ${{ secrets.APPLICATION_YML }} | base64 --decode >> /actions/application-secret.yml
