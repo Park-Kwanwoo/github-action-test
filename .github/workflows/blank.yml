@@ -2,8 +2,11 @@ name: Get and write
 on:
   [push]
 
-steps:
-  - name: Copy Secret
-  - run: mkdir actions
-  - run: touch actions/application-secret.yml
-  - run: echo ${{ secrets.APPLICATION_YML }} | base64 --decode >> /actions/application-secret.yml
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Copy Secret
+      - run: mkdir actions
+      - run: touch actions/application-secret.yml
+      - run: echo ${{ secrets.APPLICATION_YML }} | base64 --decode >> /actions/application-secret.yml
