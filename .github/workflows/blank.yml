@@ -7,5 +7,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
+    - run: mkdir /actions
     - run: touch /actions/application-secret.yml
     - run: echo ${{ secrets.APPLICATION_YML }} | base64 --decode >> /actions/application-secret.yml
