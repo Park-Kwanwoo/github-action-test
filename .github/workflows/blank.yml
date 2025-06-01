@@ -2,13 +2,8 @@ name: Get and write
 on:
   [push]
 
-jobs:
-  get-and-write:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v4
-    - run: chomd +x
-      shell: bash
-    - run: mkdir /actions
-    - run: touch /actions/application-secret.yml
-    - run: echo ${{ secrets.APPLICATION_YML }} | base64 --decode >> /actions/application-secret.yml
+steps:
+  - name: Copy Secret
+  - run: mkdir actions
+  - run: touch actions/application-secret.yml
+  - run: echo ${{ secrets.APPLICATION_YML }} | base64 --decode >> /actions/application-secret.yml
