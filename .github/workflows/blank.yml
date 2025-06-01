@@ -1,0 +1,10 @@
+name: Get and write
+on:
+  [push]
+
+jobs:
+  get-and-write:
+    steps:
+      - name: Gets secret and write in directory
+        runs: touch /actions/application-secret.yml
+        runs: echo ${{ secrets.APPLICATION_YML }} | base64 --decode >> /actions/application-secret.yml
