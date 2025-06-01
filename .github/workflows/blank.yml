@@ -8,5 +8,4 @@ jobs:
     steps:
       - name: Copy Secret
         run: |
-          touch actions/application-secret.yml
-          echo ${{ secrets.APPLICATION_YML }} | base64 --decode >> actions/application-secret.yml
+          pwd
