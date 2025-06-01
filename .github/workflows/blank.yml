@@ -7,4 +7,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Copy Secret
-        run: echo ${{ secrets.APPLICATION_YML }} | base64 --decode >> actions/application-secret.yml
+        run: touch actions/application-secret.yml && echo ${{ secrets.APPLICATION_YML }} | base64 --decode >> actions/application-secret.yml
