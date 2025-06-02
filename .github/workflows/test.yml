@@ -12,11 +12,11 @@ jobs:
       - name: Write db data
         run: |
           mkdir -p src/main/resources
-          echo ${{ secrets.APPLICATION_DB_YML }} | base64-- decode >> src/main/resources/application-prod-db.yml
+          echo ${{ secrets.APPLICATION_DB_YML }} | base64 --decode >> src/main/resources/application-prod-db.yml
 
       - name : Write key data
         run: |
-          echo ${{ secrets.APPLICATION_KEY_YML }} | base64-- decode >> src/main/resources/application-key.yml
+          echo ${{ secrets.APPLICATION_KEY_YML }} | base64 --decode >> src/main/resources/application-key.yml
 
       - name: Read Data
         run: |
