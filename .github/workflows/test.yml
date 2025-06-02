@@ -1,0 +1,26 @@
+name: github actions test
+on:
+  [push]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkcout
+        uses: actions/checkout@v4
+       
+      - name: Write db data
+        run: |
+          mkdir -p src/main/resources
+          echo ${{ secrets.APPLICATION_DB_YML }} >> src/main/resources/application-prod-db.yml
+
+      - name : Write key data
+        run: |
+          echo ${{ secrets.APPLICATION_KEY_YML }} >> src/main/resources/application-key.yml
+
+      - name: Read Data
+        run: |
+          cat src/main/resources/application-prod-db.yml
+          cat src/main/resources/application-key.yml
+     
+    
